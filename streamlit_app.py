@@ -1,6 +1,7 @@
 # streamlit_app.py
 
 import streamlit as st
+st.set_page_config(layout="wide")
 import pandas as pd
 import folium
 from folium.plugins import MarkerCluster
@@ -25,7 +26,7 @@ def load_data():
 df = load_data()
 
 # --- UI ---
-st.set_page_config(layout="wide")
+
 st.title("📍 Fresno PM2.5 AQI - Time Slider Map")
 st.caption("Explore AQI by hour from 1999 to 2025")
 
