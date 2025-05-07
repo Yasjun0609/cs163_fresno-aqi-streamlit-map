@@ -18,7 +18,7 @@ category_colors = {
 # --- 데이터 로드 ---
 @st.cache_data
 def load_data():
-    df = pd.read_csv("fresno_pm25_hourly_with_aqi_and_category_reduced.csv")
+    df = pd.read_csv("fresno_pm25_hourly_with_aqi_and_category.csv")
     df["datetime"] = pd.to_datetime(df["date_local"] + " " + df["time_local"], errors="coerce")
     return df.dropna(subset=["datetime", "latitude", "longitude"])
 
