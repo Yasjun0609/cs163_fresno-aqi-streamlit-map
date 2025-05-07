@@ -47,7 +47,7 @@ filtered = df[
 # 지도 시각화
 st.markdown(f"🧭 {len(filtered)} monitors found for {selected_date} @ {selected_hour}:00")
 m = folium.Map(location=[filtered["latitude"].mean(), filtered["longitude"].mean()],
-               zoom_start=10, tiles="CartoDB dark_matter")
+               zoom_start=10, tiles="CartoDB positron")
 cluster = MarkerCluster().add_to(m)
 
 for _, row in filtered.iterrows():
@@ -55,11 +55,11 @@ for _, row in filtered.iterrows():
     popup = f"Site: {row['site_number']}<br>AQI: {row['aqi']}<br>PM2.5: {row['sample_measurement']} µg/m³"
     folium.CircleMarker(
         location=(row["latitude"], row["longitude"]),
-        radius=7,
-        color=color,
+        radius=10,
+        color="black",
         fill=True,
         fill_color=color,
-        fill_opacity=0.9,
+        fill_opacity=0.95,
         popup=popup
     ).add_to(cluster)
 
